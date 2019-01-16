@@ -1,2 +1,2 @@
 # Dewm
-2D Doom-Inspired Game
+2D Doom-Inspired "Platform" Game
