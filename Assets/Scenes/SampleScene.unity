@@ -121,7 +121,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 243294422}
-  m_Layer: 0
+  - component: {fileID: 243294423}
+  m_Layer: 10
   m_Name: EnemyTest
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -142,6 +143,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &243294423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 243294421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ebafbfc5f753134f9ac9d8cd7aa103e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: 5
+  maxHealth: 5
 --- !u!1 &510481151
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,7 +346,8 @@ GameObject:
   - component: {fileID: 726740023}
   - component: {fileID: 726740025}
   - component: {fileID: 726740024}
-  m_Layer: 0
+  - component: {fileID: 726740026}
+  m_Layer: 10
   m_Name: GraphicsEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -423,6 +438,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &726740026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 726740022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ebafbfc5f753134f9ac9d8cd7aa103e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: 5
+  maxHealth: 5
 --- !u!1001 &1038838603
 Prefab:
   m_ObjectHideFlags: 0
@@ -491,6 +519,16 @@ Prefab:
       value: 
       objectReference: {fileID: 4697170809859624, guid: 4144321f16df05942841212e3e764a36,
         type: 2}
+    - target: {fileID: 114593166643143896, guid: e3fc55c8963cce247ab1be47a0d01d01,
+        type: 2}
+      propertyPath: WhatToHit.m_Bits
+      value: 1331
+      objectReference: {fileID: 0}
+    - target: {fileID: 114593166643143896, guid: e3fc55c8963cce247ab1be47a0d01d01,
+        type: 2}
+      propertyPath: damageToGive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3fc55c8963cce247ab1be47a0d01d01, type: 2}
   m_IsPrefabAsset: 0

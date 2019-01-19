@@ -5,7 +5,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour {
 
     public float fireRate = 0;
-    public float damage = 1;
+    public int damageToGive = 1;
     public LayerMask WhatToHit;
 
     public Transform bulletTrailPrefab;
@@ -16,6 +16,7 @@ public class Weapon : MonoBehaviour {
     private float timeToFire = 0;
     Transform firePoint;
     Transform casingReleasePoint;
+
 
     // Use this for initialization
     void Awake () {
@@ -61,8 +62,13 @@ public class Weapon : MonoBehaviour {
         if (hit.collider != null)
         {
             Debug.DrawLine(firePointPosition, hit.point, Color.red);
-            Debug.Log("You hit " + hit.collider.name + " and did " + damage + " damage.");
-        }
+            EnemyHealthManager enemy = hit.collider.GetComponent<EnemyHealthManager>();
+            if (enemy != null)
+            {
+                enemy.giveDamage(damageToGive);
+                Debug.Log("You hit " + hit.collider.name + " and did " + damageToGive + " damage.");
+            }
+        }                
     }
 
     void Effect()
@@ -70,4 +76,5 @@ public class Weapon : MonoBehaviour {
         Instantiate(bulletTrailPrefab, firePoint.position, firePoint.rotation);
         Instantiate(shellReleasePrefab, casingReleasePoint.position, casingReleasePoint.rotation);
     }
+
 }
