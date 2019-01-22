@@ -1,0 +1,66 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class LevelManager : MonoBehaviour
+{
+
+    public static LevelManager lm;
+
+    public GameObject currentCheckpoint;
+
+    private PlayerController player;
+
+    public float respawnDelay;
+
+    private new CameraController camera;
+
+    //public HealthManager healthManager;
+
+
+    private void Awake()
+    {
+        if (lm == null)
+        {
+            lm = GameObject.FindGameObjectWithTag("LM").GetComponent<LevelManager>();
+        }
+    }
+
+    void Start()
+    {
+
+        player = FindObjectOfType<PlayerController>(); //find PlayerController in the level and assign it to player
+
+        camera = FindObjectOfType<CameraController>();
+
+        //healthManager = FindObjectOfType<HealthManager>();
+    }
+    /*
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    public void RespawnPlayer() //handles death and respawn
+    {
+        StartCoroutine("RespawnPlayerCo");
+    }
+
+    public IEnumerator RespawnPlayerCo()
+    {
+        player.enabled = false; //makes player disappear after death
+        player.GetComponent<Renderer>().enabled = false; //makes player disappear after death
+        camera.isFollowing = false;
+        Debug.Log("Player Respawn");
+        yield return new WaitForSeconds(respawnDelay); //handles delaying respawn
+        player.transform.position = new Vector3(currentCheckpoint.transform.position.x, currentCheckpoint.transform.position.y, player.transform.position.z); //handles spawn reposition
+        player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        player.enabled = true;
+        player.GetComponent<Renderer>().enabled = true;
+        camera.isFollowing = true;
+
+    } 
+    */
+}
