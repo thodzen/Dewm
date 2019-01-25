@@ -477,6 +477,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1836938650}
     m_Modifications:
+    - target: {fileID: 1703135646532290, guid: e3fc55c8963cce247ab1be47a0d01d01, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703135646532290, guid: e3fc55c8963cce247ab1be47a0d01d01, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 4987887526527696, guid: e3fc55c8963cce247ab1be47a0d01d01, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.284
@@ -544,6 +552,10 @@ PrefabInstance:
     - target: {fileID: 1879672011865732, guid: e3fc55c8963cce247ab1be47a0d01d01, type: 3}
       propertyPath: m_Icon
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879672011865732, guid: e3fc55c8963cce247ab1be47a0d01d01, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4296882305380562, guid: e3fc55c8963cce247ab1be47a0d01d01, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1032,7 +1044,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1907725874}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: CasingReleasePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1053,72 +1065,3 @@ Transform:
   m_Father: {fileID: 1394451298}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &6960207239261538721
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8753166901989587159, guid: a78bd3f57f2c8574aad19ccc54f416ad,
-        type: 3}
-      propertyPath: m_Name
-      value: CasingRelease
-      objectReference: {fileID: 0}
-    - target: {fileID: 1927034440196266788, guid: a78bd3f57f2c8574aad19ccc54f416ad,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1927034440196266788, guid: a78bd3f57f2c8574aad19ccc54f416ad,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.711
-      objectReference: {fileID: 0}
-    - target: {fileID: 1927034440196266788, guid: a78bd3f57f2c8574aad19ccc54f416ad,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1927034440196266788, guid: a78bd3f57f2c8574aad19ccc54f416ad,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1927034440196266788, guid: a78bd3f57f2c8574aad19ccc54f416ad,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1927034440196266788, guid: a78bd3f57f2c8574aad19ccc54f416ad,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1927034440196266788, guid: a78bd3f57f2c8574aad19ccc54f416ad,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1927034440196266788, guid: a78bd3f57f2c8574aad19ccc54f416ad,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1927034440196266788, guid: a78bd3f57f2c8574aad19ccc54f416ad,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1927034440196266788, guid: a78bd3f57f2c8574aad19ccc54f416ad,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1927034440196266788, guid: a78bd3f57f2c8574aad19ccc54f416ad,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a78bd3f57f2c8574aad19ccc54f416ad, type: 3}
