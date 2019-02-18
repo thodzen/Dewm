@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealthManager : MonoBehaviour {
 
     public float enemyHealth;
     public float maxHealth;
+
+    public GameObject healthBar;
+    public Slider healthBarSlider;
 
     // Use this for initialization
     void Start()
@@ -15,6 +19,8 @@ public class EnemyHealthManager : MonoBehaviour {
 
     public void giveDamage(float damageToGive)
     {
+        healthBar.SetActive(true);
+        healthBarSlider.value = CalculateHealthPercentage();
         enemyHealth -= damageToGive;
         CheckDeath();
 
