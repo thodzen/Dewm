@@ -83,7 +83,7 @@ public class Weapon : MonoBehaviour {
                 enemy.giveDamage(damageToGive);
                 Debug.Log("You hit " + hit.collider.name + " and did " + damageToGive + " damage.");
             }
-        }                
+        }
     }
 
     void Effect()

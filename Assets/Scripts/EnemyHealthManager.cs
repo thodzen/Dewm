@@ -11,10 +11,13 @@ public class EnemyHealthManager : MonoBehaviour {
     public GameObject healthBar;
     public Slider healthBarSlider;
 
+    private EnemyController enemyController;
+
     // Use this for initialization
     void Start()
     {
         enemyHealth = maxHealth;
+        enemyController = GetComponent<EnemyController>();
     }
 
     public void giveDamage(float damageToGive)
@@ -23,6 +26,7 @@ public class EnemyHealthManager : MonoBehaviour {
         healthBarSlider.value = CalculateHealthPercentage();
         enemyHealth -= damageToGive;
         CheckDeath();
+        enemyController.Knockback();
 
     }
 

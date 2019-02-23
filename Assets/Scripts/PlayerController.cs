@@ -142,6 +142,5 @@ public class PlayerController : MonoBehaviour {
         rb.velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
         moveVelocity = moveSpeed;
     }
-
 }
 
