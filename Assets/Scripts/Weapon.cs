@@ -22,6 +22,8 @@ public class Weapon : MonoBehaviour {
     Transform firePoint;
     Transform casingReleasePoint;
 
+    public AudioSource shootSound;
+
 
     // Use this for initialization
     void Awake () {
@@ -84,6 +86,7 @@ public class Weapon : MonoBehaviour {
                 Debug.Log("You hit " + hit.collider.name + " and did " + damageToGive + " damage.");
             }
         }
+        shootSound.Play();
     }
 
     void Effect()
