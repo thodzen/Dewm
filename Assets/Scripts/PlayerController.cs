@@ -27,8 +27,8 @@ public class PlayerController : MonoBehaviour {
     public float jumpTime;
     private bool isJumping;
 
-    //[Header("Animation")]
-    //private Animator anim;
+    [Header("Animation")]
+    private Animator anim;
 
     private void Awake()
     {
@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour {
     {
         rb = GetComponent<Rigidbody2D>();
 
-        //anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
     }
 
     void FixedUpdate()
@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour {
             MoveLeft();
         }
 
-        //anim.SetFloat("Speed", Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x));
+        anim.SetFloat("Speed", Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x));
 
         if (rb.velocity.x > 0)
         {
