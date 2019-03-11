@@ -15,6 +15,7 @@ public class Weapon : MonoBehaviour {
 
     public Transform bulletTrailPrefab;
     public Transform shellReleasePrefab;
+    public Transform hitPrefab;
 
     private float timeToSpawnEffect = 0;
     public float effectSpawnRate = 10;
@@ -69,11 +70,7 @@ public class Weapon : MonoBehaviour {
         Vector2 mousePosition = new Vector2 (Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
         Vector2 firePointPosition = new Vector2(firePoint.position.x, firePoint.position.y);
         RaycastHit2D hit = Physics2D.Raycast(firePointPosition, mousePosition - firePointPosition, 100, WhatToHit);
-        if (Time.time >= timeToSpawnEffect)
-        {
-            Effect();
-            timeToSpawnEffect = Time.time + 1 / effectSpawnRate;
-        }
+    
 
         Debug.DrawLine(firePointPosition, (mousePosition - firePointPosition) * 100, Color.cyan);
         if (hit.collider != null)
@@ -87,11 +84,42 @@ public class Weapon : MonoBehaviour {
             }
         }
         shootSound.Play();
+
+        if (Time.time >= timeToSpawnEffect)
+        {
+            Vector3 hitPos;
+            Vector3 hitNormal; // An effect that will shoot out perpendicular to what it collides with
+            if (hit.collider == null)
+            {
+                hitPos = (mousePosition - firePointPosition) * 50; // Bullet Effect continues off screen
+                hitNormal = new Vector3(9999, 9999, 9999);
+            }
+            else
+            {
+                hitPos = hit.point; // Bullet Effect stops when it hits something
+                hitNormal = hit.normal;
+            }
+            Effect(hitPos, hitNormal);
+            timeToSpawnEffect = Time.time + 1 / effectSpawnRate;
+        }
     }
 
-    void Effect()
+    void Effect(Vector3 hitPos, Vector3 hitNormal)
     {
-        Instantiate(bulletTrailPrefab, firePoint.position, firePoint.rotation);
+        Transform trail = Instantiate(bulletTrailPrefab, firePoint.position, firePoint.rotation) as Transform;
+        LineRenderer lineRender = trail.GetComponent<LineRenderer>();
+        if (lineRender != null)
+        {
+            lineRender.SetPosition(0, firePoint.position);
+            lineRender.SetPosition(1, hitPos);
+        }
+        Destroy(trail.gameObject, 0.04f);
+
+        if (hitNormal != new Vector3(9999, 9999, 9999))
+        {
+            Instantiate(hitPrefab, hitPos, Quaternion.FromToRotation(Vector3.forward, hitNormal));
+        }
+
         Instantiate(shellReleasePrefab, casingReleasePoint.position, casingReleasePoint.rotation);
         camShake.Shake(camShakeAmount, camShakeLength);
     }
