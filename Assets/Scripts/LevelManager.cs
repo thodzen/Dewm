@@ -15,6 +15,8 @@ public class LevelManager : MonoBehaviour
 
     private new CameraController camera;
 
+    public const int maxKeys = 16;
+    private bool[] keysOwned = new bool[maxKeys]; //Max of 16 keys
     //public HealthManager healthManager;
 
 
@@ -35,6 +37,35 @@ public class LevelManager : MonoBehaviour
 
         //healthManager = FindObjectOfType<HealthManager>();
     }
+
+    public void resetKeys()
+    {
+        for (int i = 0; i < maxKeys; i++)
+        {
+            keysOwned[i] = false;
+        }
+    }
+
+    public bool getKeyOwned(int index)
+    {
+        if (index >= 0 && index < maxKeys)
+        {
+            return keysOwned[index];
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void setKeyOwned(int index)
+    {
+        if (index >= 0 && index < maxKeys)
+        {
+            keysOwned[index] = true;
+        }
+    }
+
     /*
 
     // Update is called once per frame
