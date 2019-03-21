@@ -141,5 +141,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07a1f06d31678ad469460e6799ff2a58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CasingOrShell: {fileID: 8753166901989587159}
+  objectToDestory: {fileID: 8753166901989587159}
   waitToDestory: 10

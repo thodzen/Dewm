@@ -17,7 +17,7 @@ public class LevelManager : MonoBehaviour
 
     public const int maxKeys = 16;
     private bool[] keysOwned = new bool[maxKeys]; //Max of 16 keys
-    //public HealthManager healthManager;
+    public HealthManager healthManager;
 
 
     private void Awake()
@@ -35,7 +35,7 @@ public class LevelManager : MonoBehaviour
 
         camera = FindObjectOfType<CameraController>();
 
-        //healthManager = FindObjectOfType<HealthManager>();
+        healthManager = FindObjectOfType<HealthManager>();
     }
 
     public void resetKeys()
@@ -66,12 +66,17 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    /*
+    
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    public static void KillPlayer(GameObject player)
+    {
+        Destroy(player.gameObject);
     }
 
     public void RespawnPlayer() //handles death and respawn
@@ -93,5 +98,5 @@ public class LevelManager : MonoBehaviour
         camera.isFollowing = true;
 
     } 
-    */
+    
 }

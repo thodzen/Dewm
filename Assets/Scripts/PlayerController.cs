@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour {
     private float jumpTimeCounter;
     public float jumpTime;
     private bool isJumping;
+    public Transform jetPackEffect;
+    Transform jetpackReleasePoint;
 
     [Header("Animation")]
     private Animator anim;
@@ -43,6 +45,8 @@ public class PlayerController : MonoBehaviour {
         {
             Debug.LogError("No arm objects as child of player");
         }
+
+        jetpackReleasePoint = transform.Find("JetpackReleasePoint");
     }
 
     // Use this for initialization
@@ -95,7 +99,9 @@ public class PlayerController : MonoBehaviour {
          {
              Jump();
              doubleJumped = true;
-         }
+             Transform JetpackClone = Instantiate(jetPackEffect, jetpackReleasePoint.position, jetpackReleasePoint.rotation) as Transform;
+             JetpackClone.parent = jetpackReleasePoint;
+        }
 
         moveVelocity = 0f;
 

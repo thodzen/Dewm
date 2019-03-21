@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4483463100002603701}
   - component: {fileID: 4483463100002603702}
   - component: {fileID: 4483463100002603703}
+  - component: {fileID: 5930007681346415463}
   m_Layer: 0
   m_Name: BloodEffect
   m_TagString: Untagged
@@ -4756,3 +4757,17 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &5930007681346415463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4483463100002603656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a1f06d31678ad469460e6799ff2a58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToDestory: {fileID: 4483463100002603656}
+  waitToDestory: 5

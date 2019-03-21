@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DestoryObject : MonoBehaviour
 {
-    public GameObject CasingOrShell;
+    public GameObject objectToDestory;
     public float waitToDestory;
 
     // Start is called before the first frame update
@@ -16,6 +16,6 @@ public class DestoryObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Destroy(CasingOrShell, waitToDestory);
+        Destroy(objectToDestory, waitToDestory);
     }
 }
