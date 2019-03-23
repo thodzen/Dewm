@@ -14,6 +14,7 @@ public class EnemyHealthManager : MonoBehaviour {
     private EnemyController enemyController;
 
     public AudioSource oof;
+    public AudioSource splat;
 
     // Use this for initialization
     void Start()
@@ -37,7 +38,8 @@ public class EnemyHealthManager : MonoBehaviour {
         {
             //Instantiate(deathEffect, transform.position, transform.rotation);
             Destroy(gameObject);
-            oof.Play();
+           // oof.Play();
+            splat.Play();
         }
 
 

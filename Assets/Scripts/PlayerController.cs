@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
     [Header("Movement")]
     public float moveSpeed;
     public float moveVelocity;
+    public AudioSource footstep;
 
     [Header("Arm")]
     Transform playerGraphics;
@@ -141,12 +142,14 @@ public class PlayerController : MonoBehaviour {
     {
         rb.velocity = new Vector2(-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
         moveVelocity = -moveSpeed;
+        //footstep.Play();
     }
 
     public void MoveRight()
     {
         rb.velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
         moveVelocity = moveSpeed;
+        //footstep.Play();
     }
 }
 
