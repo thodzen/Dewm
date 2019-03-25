@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour
 
     public GameObject currentCheckpoint;
 
-    private PlayerController player;
+    public PlayerController player;
 
     public float respawnDelay;
 
@@ -31,11 +31,11 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
 
-        player = FindObjectOfType<PlayerController>(); //find PlayerController in the level and assign it to player
+        //player = FindObjectOfType<PlayerController>(); //find PlayerController in the level and assign it to player
 
         camera = FindObjectOfType<CameraController>();
 
-        healthManager = FindObjectOfType<HealthManager>();
+        //healthManager = FindObjectOfType<HealthManager>();
     }
 
     public void resetKeys()

@@ -536,6 +536,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   levelManager: {fileID: 1692232541}
   isDead: 0
+  oof: {fileID: 416768396}
 --- !u!114 &229952551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2334,10 +2335,10 @@ RectTransform:
   m_Father: {fileID: 1454911327}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -297.39, y: 194.23}
-  m_SizeDelta: {x: 185.20001, y: 69.54001}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 92.61, y: -34.77}
+  m_SizeDelta: {x: 185.2, y: 69.54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &634585525
 MonoBehaviour:
@@ -5739,8 +5740,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentCheckpoint: {fileID: 135448444620738947}
+  player: {fileID: 1872394982}
   respawnDelay: 0
-  healthManager: {fileID: 0}
+  healthManager: {fileID: 229952550}
 --- !u!114 &1692232542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6418,6 +6420,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   levelManager: {fileID: 0}
   isDead: 0
+  oof: {fileID: 0}
 --- !u!1 &1873084603
 GameObject:
   m_ObjectHideFlags: 0
