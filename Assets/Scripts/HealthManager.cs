@@ -6,16 +6,16 @@ using UnityEngine.UI;
 public class HealthManager : MonoBehaviour
 {
 
-    public float maxPlayerHealth;
-  
+    public int maxPlayerHealth;
+    public Slider healthSlider;
     public Text healthText;
 
-    public static float playerHealth;
+    public static int playerHealth;
 
     Text text;
     public Slider healthBar;
 
-    private LevelManager levelManager;
+    public LevelManager levelManager;
 
     public bool isDead;
 
@@ -24,14 +24,11 @@ public class HealthManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        healthBar.value = 1;
         text = GetComponent<Text>();
         healthBar = GetComponent<Slider>();
 
         playerHealth = maxPlayerHealth;
         SetHealthUI();
-
-        levelManager = FindObjectOfType<LevelManager>();
         isDead = false;
     }
 
@@ -42,18 +39,17 @@ public class HealthManager : MonoBehaviour
         if (playerHealth <= 0 && !isDead)
         {
             playerHealth = 0;
-            levelManager.RespawnPlayer();
             isDead = true;
             oof.Play();
-            //LevelManager.KillPlayer(gameObject);
+            levelManager.RespawnPlayer();
         }
 
-        text.text = "" + playerHealth;
+        //text.text = "" + playerHealth;
         healthBar.value = playerHealth;
 
     }
 
-    public static void HurtPlayer(float damageToGive)
+    public static void HurtPlayer(int damageToGive)
     {
         playerHealth -= damageToGive;
     }
@@ -65,12 +61,13 @@ public class HealthManager : MonoBehaviour
 
     private void SetHealthUI()
     {
-        healthBar.value = CalculateHealthPercentage();
+        healthSlider.value = CalculateHealthPercentage();
         healthText.text = Mathf.Ceil(playerHealth).ToString() + " / " + Mathf.Ceil(maxPlayerHealth).ToString();
     }
 
-    float CalculateHealthPercentage()
+    int CalculateHealthPercentage()
     {
         return playerHealth / maxPlayerHealth;
     }
+
 }
