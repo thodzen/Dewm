@@ -5,12 +5,17 @@ using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
+    public static HealthManager Instance
+    {
+        get;
+        private set;
+    }
 
     public int maxPlayerHealth;
     public Slider healthSlider;
     public Text healthText;
 
-    public static int playerHealth;
+    public int playerHealth;
 
     Text text;
     public Slider healthBar;
@@ -23,16 +28,21 @@ public class HealthManager : MonoBehaviour
 
     private Animator anim;
 
+    private void Awake()
+    {
+        Instance = this;
+        text = GetComponent<Text>();
+        anim = GetComponent<Animator>();
+    }
+
     // Use this for initialization
     void Start()
     {
-        text = GetComponent<Text>();
-        healthBar = GetComponent<Slider>();
-
+        
         playerHealth = maxPlayerHealth;
         SetHealthUI();
         isDead = false;
-        anim = GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
@@ -53,7 +63,7 @@ public class HealthManager : MonoBehaviour
 
     }
 
-    public static void HurtPlayer(int damageToGive)
+    public void HurtPlayer(int damageToGive)
     {
         playerHealth -= damageToGive;
     }

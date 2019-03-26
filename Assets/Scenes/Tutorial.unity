@@ -487,7 +487,6 @@ GameObject:
   m_Component:
   - component: {fileID: 229952549}
   - component: {fileID: 229952551}
-  - component: {fileID: 229952550}
   m_Layer: 5
   m_Name: Heatlh Slider
   m_TagString: Untagged
@@ -518,25 +517,6 @@ RectTransform:
   m_AnchoredPosition: {x: 93.1, y: -23.1}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &229952550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 229952548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9b8a76c2db901c40876c8becd481f04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxPlayerHealth: 100
-  healthSlider: {fileID: 229952551}
-  healthText: {fileID: 1251666948}
-  healthBar: {fileID: 0}
-  levelManager: {fileID: 1692232541}
-  isDead: 0
-  oof: {fileID: 416768396}
 --- !u!114 &229952551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1784,8 +1764,6 @@ GameObject:
   m_Component:
   - component: {fileID: 510481152}
   - component: {fileID: 510481153}
-  - component: {fileID: 510481154}
-  - component: {fileID: 510481155}
   m_Layer: 9
   m_Name: Graphics
   m_TagString: Player
@@ -1855,49 +1833,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &510481154
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 510481151}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8c54d426683209b43a3b69ecc417690d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &510481155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 510481151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f18031df803c65449bb5207d68ed5cda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 0
-  moveVelocity: 0
-  footstep: {fileID: 0}
-  groundCheck: {fileID: 562189731}
-  groundCheckRadius: 0
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 0
-  grounded: 0
-  jumpHeight: 0
-  jumpTime: 0
-  jetPackEffect: {fileID: 0}
 --- !u!1 &512365990
 GameObject:
   m_ObjectHideFlags: 0
@@ -3638,7 +3573,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1703135646532290, guid: e3fc55c8963cce247ab1be47a0d01d01, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4987887526527696, guid: e3fc55c8963cce247ab1be47a0d01d01, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4382,6 +4317,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1251666946}
   m_CullTransparentMesh: 0
+--- !u!1 &1289445025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1289445026}
+  m_Layer: 13
+  m_Name: CasingReleasePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1289445026
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289445025}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 876863617}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1394451298 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4987887526527696, guid: e3fc55c8963cce247ab1be47a0d01d01,
@@ -5988,7 +5953,7 @@ MonoBehaviour:
   currentCheckpoint: {fileID: 135448444620738947}
   player: {fileID: 1872394982}
   respawnDelay: 1
-  healthManager: {fileID: 229952550}
+  healthManager: {fileID: 0}
 --- !u!114 &1692232542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6724,13 +6689,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9b8a76c2db901c40876c8becd481f04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPlayerHealth: 0
-  healthSlider: {fileID: 0}
-  healthText: {fileID: 0}
-  healthBar: {fileID: 0}
-  levelManager: {fileID: 0}
+  maxPlayerHealth: 100
+  healthSlider: {fileID: 229952551}
+  healthText: {fileID: 1251666948}
+  playerHealth: 0
+  healthBar: {fileID: 229952551}
+  levelManager: {fileID: 1692232541}
   isDead: 0
-  oof: {fileID: 0}
+  oof: {fileID: 416768396}
 --- !u!1 &1880086845
 GameObject:
   m_ObjectHideFlags: 0
@@ -7148,7 +7114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1703135646532290, guid: cf76c61fa6e31214e9d4cfca0d1a6f46, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4987887526527696, guid: cf76c61fa6e31214e9d4cfca0d1a6f46, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7202,12 +7168,12 @@ PrefabInstance:
     - target: {fileID: 114593166643143896, guid: cf76c61fa6e31214e9d4cfca0d1a6f46,
         type: 3}
       propertyPath: camShakeLength
-      value: 1
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 114593166643143896, guid: cf76c61fa6e31214e9d4cfca0d1a6f46,
         type: 3}
       propertyPath: camShakeAmount
-      value: 1
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 114593166643143896, guid: cf76c61fa6e31214e9d4cfca0d1a6f46,
         type: 3}

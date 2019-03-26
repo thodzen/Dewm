@@ -27,7 +27,7 @@ public class HurtPlayerOnContact : MonoBehaviour
 
         if (other.name == "Player")
         {
-            HealthManager.HurtPlayer(damageToGive);
+            HealthManager.Instance?.HurtPlayer(damageToGive);
             Debug.Log("Hurt Player");
 
             Vector3 particlePosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
