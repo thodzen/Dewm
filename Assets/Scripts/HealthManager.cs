@@ -21,6 +21,8 @@ public class HealthManager : MonoBehaviour
 
     public AudioSource oof;
 
+    private Animator anim;
+
     // Use this for initialization
     void Start()
     {
@@ -30,6 +32,7 @@ public class HealthManager : MonoBehaviour
         playerHealth = maxPlayerHealth;
         SetHealthUI();
         isDead = false;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -41,6 +44,7 @@ public class HealthManager : MonoBehaviour
             playerHealth = 0;
             isDead = true;
             oof.Play();
+            anim.SetBool("IsDead", true);
             levelManager.RespawnPlayer();
         }
 

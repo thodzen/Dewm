@@ -34,7 +34,7 @@ public class LevelManager : MonoBehaviour
         //player = FindObjectOfType<PlayerController>(); //find PlayerController in the level and assign it to player
 
         camera = FindObjectOfType<CameraController>();
-
+        
         //healthManager = FindObjectOfType<HealthManager>();
     }
 
@@ -86,6 +86,7 @@ public class LevelManager : MonoBehaviour
 
     public IEnumerator RespawnPlayerCo()
     {
+        yield return new WaitForSeconds(3.0f);
         player.enabled = false; //makes player disappear after death
         player.GetComponent<Renderer>().enabled = false; //makes player disappear after death
         camera.isFollowing = false;
