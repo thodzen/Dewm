@@ -55,12 +55,11 @@ public class HealthManager : MonoBehaviour
             isDead = true;
             oof.Play();
             anim.SetBool("IsDead", true);
-            levelManager.RespawnPlayer();
+            levelManager.RespawnPlayer();            
         }
-
+        
         //text.text = "" + playerHealth;
         healthBar.value = playerHealth;
-
     }
 
     public void HurtPlayer(int damageToGive)
