@@ -17,7 +17,6 @@ public class LevelManager : MonoBehaviour
 
     public const int maxKeys = 16;
     private bool[] keysOwned = new bool[maxKeys]; //Max of 16 keys
-    public HealthManager healthManager;
 
 
     private void Awake()
@@ -95,8 +94,6 @@ public class LevelManager : MonoBehaviour
         player.transform.position = new Vector3(currentCheckpoint.transform.position.x, currentCheckpoint.transform.position.y, player.transform.position.z); //handles spawn reposition
         player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         player.enabled = true;
-        healthManager.FullHealth();
-        healthManager.isDead = false;
         player.GetComponent<Renderer>().enabled = true;
         camera.isFollowing = true;
     } 

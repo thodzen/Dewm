@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1289445025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1289445026}
+  m_Layer: 13
+  m_Name: CasingReleasePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1289445026
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289445025}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4987887526527696}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1703135646532290
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,9 +41,9 @@ GameObject:
   - component: {fileID: 4987887526527696}
   - component: {fileID: 212011894512822256}
   - component: {fileID: 114593166643143896}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: AssaultRifle
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,11 +55,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1703135646532290}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.284, y: -0.172, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4296882305380562}
+  - {fileID: 1289445026}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -69,7 +100,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1949019373
   m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: bd0c436dc57774342a3b6620798cfa6f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -94,15 +125,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate: 10
-  damageToGive: 6
+  damage: 2
   WhatToHit:
     serializedVersion: 2
-    m_Bits: 307
-  camShakeAmount: 0
-  camShakeLength: 0
-  bulletTrailPrefab: {fileID: 0}
-  shellReleasePrefab: {fileID: 0}
+    m_Bits: 1331
+  camShakeAmount: 0.03
+  camShakeLength: 0.02
+  bulletTrailPrefab: {fileID: 4855550808492782, guid: fca2836d3faee194da6dcd595773b405,
+    type: 3}
+  shellReleasePrefab: {fileID: 1927034440196266788, guid: a78bd3f57f2c8574aad19ccc54f416ad,
+    type: 3}
+  hitPrefab: {fileID: 4483463100002603701, guid: 3196ac00e07e93d44b2fbba62a21cb0e,
+    type: 3}
   effectSpawnRate: 10
+  shootSound: {fileID: 0}
 --- !u!1 &1879672011865732
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,7 +148,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4296882305380562}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

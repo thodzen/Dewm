@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7307107032613387838}
   - component: {fileID: 767508190261545117}
-  - component: {fileID: 964388771790408769}
+  - component: {fileID: 1885681282258920801}
   m_Layer: 0
   m_Name: jet
   m_TagString: Untagged
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &964388771790408769
+--- !u!114 &1885681282258920801
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,8 +89,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9073110285464223037}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07a1f06d31678ad469460e6799ff2a58, type: 3}
+  m_Script: {fileID: 11500000, guid: a6ac1071856dbd44588f429b236696df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToDestory: {fileID: 9073110285464223037}
-  waitToDestory: 0.3
+  lifeSpan: 0.2

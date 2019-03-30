@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour {
     private float jumpTimeCounter;
     public float jumpTime;
     private bool isJumping;
-    public Transform jetPackEffect;
+    public GameObject jetPackEffect;
     Transform jetpackReleasePoint;
 
     [Header("Animation")]
@@ -100,8 +100,7 @@ public class PlayerController : MonoBehaviour {
          {
              Jump();
              doubleJumped = true;
-             Transform JetpackClone = Instantiate(jetPackEffect, jetpackReleasePoint.position, jetpackReleasePoint.rotation) as Transform;
-             JetpackClone.parent = jetpackReleasePoint;
+             Instantiate(jetPackEffect, jetpackReleasePoint.position, jetpackReleasePoint.rotation, jetpackReleasePoint);
         }
 
         moveVelocity = 0f;
@@ -119,13 +118,11 @@ public class PlayerController : MonoBehaviour {
 
         if (rb.velocity.x > 0)
         {
-            playerGraphics.localScale = new Vector3(1f, 1f, 1f); //Flips player body and NOT arm
-            playerArm.localScale = new Vector3(1f, 1f, 1f); //Keeps are flipped the right way when facing right
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else if (rb.velocity.x < 0)
         {
-            playerGraphics.localScale = new Vector3(-1f, 1f, 1f); //Flips player body and NOT arm
-            playerArm.localScale = new Vector3(1f, -1f, 1f); //Flips arm verticle when turned around left
+            transform.rotation = Quaternion.Euler(0, 180, 0);
         }
     }
 
@@ -134,8 +131,7 @@ public class PlayerController : MonoBehaviour {
     {
         isJumping = true;
         jumpTimeCounter = jumpTime;
-        rb.velocity = Vector2.up * jumpHeight;
-        rb.velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpHeight); //CHECK
+        rb.AddForce(Vector2.up * jumpHeight);
     }
 
     public void MoveLeft()

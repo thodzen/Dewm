@@ -33,10 +33,10 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void Knockback()
+    public void Knockback(Vector2 direction)
     {
         knockbackCounter = knockbackLength;
-        rb.velocity = new Vector2(knockbackForce * transform.localScale.x, knockbackForce);
+        rb.velocity = direction * knockbackForce;
         knockback = true;
     }
 }
