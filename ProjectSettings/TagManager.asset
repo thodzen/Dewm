@@ -8,6 +8,7 @@ TagManager:
   - LM
   - CasingOrShell
   - Weapon
+  - Obstacle
   layers:
   - Default
   - TransparentFX
