@@ -73,6 +73,8 @@ public class EnemyController : MonoBehaviour
 			var direction = vector / Mathf.Abs (vector);
 			var delta = direction * speed * Time.deltaTime;
 
+			sprite.flipX = delta < 0;
+
 			rb.position += new Vector2 (delta, 0.0f);
 		}
 		else
