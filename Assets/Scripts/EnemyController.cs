@@ -34,10 +34,6 @@ public class EnemyController : MonoBehaviour
 
 	[SerializeField]
 	private GameObject playerObject;
-	[SerializeField]
-	private GameObject feetSensor;
-	[SerializeField]
-	private GameObject soldier76;
 
 	// AI Movement
 	private float aiMovementDuration = 0.0f;
