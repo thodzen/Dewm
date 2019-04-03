@@ -6,10 +6,10 @@ public class EnemyController : MonoBehaviour
 {
     private Rigidbody2D rb;
 
-	public float knockbackForce;
-    public float knockbackLength;
-    private float knockbackCounter;
-    public bool knockback; // use this so the enemy cannot move forward while being knocked back
+	//public float knockbackForce;
+    //public float knockbackLength;
+    //private float knockbackCounter;
+    //public bool knockback; // use this so the enemy cannot move forward while being knocked back
 
 	[SerializeField]
 	private GameObject spriteObject;
@@ -49,12 +49,12 @@ public class EnemyController : MonoBehaviour
 	void Start ()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = new Vector2(knockbackForce * transform.localScale.x, rb.velocity.y);
+       // rb.velocity = new Vector2(knockbackForce * transform.localScale.x, rb.velocity.y);
 
-        if (knockbackCounter <= 0)
-        {
-            knockback = false;
-        }
+        //if (knockbackCounter <= 0)
+        //{
+        //    knockback = false;
+       // }
 
 		sprite = spriteObject.GetComponent<SpriteRenderer> ();
     }
@@ -62,10 +62,10 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (knockback)
-        {
-            knockbackCounter -= Time.deltaTime;
-        }
+        //if (knockback)
+        //{
+         //   knockbackCounter -= Time.deltaTime;
+        //}
 
 		if (gotPlayerInSights)
 		{
@@ -153,10 +153,10 @@ public class EnemyController : MonoBehaviour
 		}
 	}
 
-	public void Knockback(Vector2 direction)
-    {
-        knockbackCounter = knockbackLength;
-        rb.velocity = direction * knockbackForce;
-        knockback = true;
-    }
+	//public void Knockback(Vector2 direction)
+    //{
+     //   knockbackCounter = knockbackLength;
+      //  rb.velocity = direction * knockbackForce;
+       // knockback = true;
+    //}
 }
