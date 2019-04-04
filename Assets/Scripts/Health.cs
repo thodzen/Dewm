@@ -11,6 +11,8 @@ public class Health : MonoBehaviour
     public UnityEvent onHealthChanged;
     public UnityEvent onDie;
 
+    public AudioSource deathSound;
+
 
     private int m_Health;
 
@@ -68,5 +70,6 @@ public class Health : MonoBehaviour
     public void Destroy()
     {
         Destroy(gameObject);
+        deathSound.Play();
     }
 }
