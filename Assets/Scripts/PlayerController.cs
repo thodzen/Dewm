@@ -28,7 +28,9 @@ public class PlayerController : MonoBehaviour {
     public float jumpTime;
     private bool isJumping;
     public GameObject jetPackEffect;
-    Transform jetpackReleasePoint;
+    Transform JetpackLightReleasePoint;
+    Transform jetpackLightReleasePoint;
+    public Transform lightPrefab;
 
     [Header("Animation")]
     private Animator anim;
@@ -47,7 +49,8 @@ public class PlayerController : MonoBehaviour {
             Debug.LogError("No arm objects as child of player");
         }
 
-        jetpackReleasePoint = transform.Find("JetpackReleasePoint");
+        JetpackLightReleasePoint = transform.Find("JetpackReleasePoint");
+        jetpackLightReleasePoint = transform.Find("JetpackLightReleasePoint");
     }
 
     // Use this for initialization
@@ -83,6 +86,9 @@ public class PlayerController : MonoBehaviour {
             {
                 rb.velocity = Vector2.up * jumpHeight;
                 jumpTimeCounter -= Time.deltaTime;
+
+                if (doubleJumped == true)
+                Instantiate(lightPrefab, JetpackLightReleasePoint.position, JetpackLightReleasePoint.rotation, JetpackLightReleasePoint);
             }
             else
             {
@@ -100,7 +106,9 @@ public class PlayerController : MonoBehaviour {
          {
              Jump();
              doubleJumped = true;
-             Instantiate(jetPackEffect, jetpackReleasePoint.position, jetpackReleasePoint.rotation, jetpackReleasePoint);
+             Instantiate(jetPackEffect, JetpackLightReleasePoint.position, JetpackLightReleasePoint.rotation, JetpackLightReleasePoint);
+             Instantiate(lightPrefab, JetpackLightReleasePoint.position, JetpackLightReleasePoint.rotation, JetpackLightReleasePoint);
+
         }
 
         moveVelocity = 0f;

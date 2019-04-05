@@ -17,12 +17,15 @@ public class Weapon : MonoBehaviour
     public Transform bulletTrailPrefab;
     public Transform shellReleasePrefab;
     public Transform hitPrefab;
+    public Transform lightPrefab;
 
     private float timeToSpawnEffect = 0;
     public float effectSpawnRate = 10;
     private float timeToFire = 0;
     Transform firePoint;
     Transform casingReleasePoint;
+
+    Transform muzzlePosition;
 
     public AudioSource shootSound;
 
@@ -36,6 +39,7 @@ public class Weapon : MonoBehaviour
             Debug.LogError("No FirePoint");
         }
         casingReleasePoint = transform.Find("CasingReleasePoint"); //Unity added this line
+        //muzzlePosition = transform.Find("FirePoint");
     }
 
     private void Start()
@@ -131,6 +135,7 @@ public class Weapon : MonoBehaviour
         }
 
         Instantiate(shellReleasePrefab, casingReleasePoint.position, casingReleasePoint.rotation);
+        Instantiate(lightPrefab, firePoint.position, firePoint.rotation);
         camShake.Shake(camShakeAmount, camShakeLength);
     }
 
