@@ -18,14 +18,15 @@ public class Weapon : MonoBehaviour
     public Transform shellReleasePrefab;
     public Transform hitPrefab;
     public Transform lightPrefab;
+    public Transform muzzlePrefab;
+
+    public AudioSource hitSound;
 
     private float timeToSpawnEffect = 0;
     public float effectSpawnRate = 10;
     private float timeToFire = 0;
     Transform firePoint;
     Transform casingReleasePoint;
-
-    Transform muzzlePosition;
 
     public AudioSource shootSound;
 
@@ -132,11 +133,14 @@ public class Weapon : MonoBehaviour
         if (hitNormal != new Vector3(9999, 9999, 9999))
         {
             Instantiate(hitPrefab, hitPos, Quaternion.FromToRotation(Vector3.forward, hitNormal));
+            hitSound.Play();
         }
 
         Instantiate(shellReleasePrefab, casingReleasePoint.position, casingReleasePoint.rotation);
-        Instantiate(lightPrefab, firePoint.position, firePoint.rotation);
+        Instantiate(lightPrefab, firePoint.position, firePoint.rotation, firePoint);
+        Instantiate(muzzlePrefab, firePoint.position, firePoint.rotation, firePoint);
         camShake.Shake(camShakeAmount, camShakeLength);
+
     }
 
 }

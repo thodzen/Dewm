@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour {
 
     private Vector2 targetPos;
 
+    public SpriteRenderer sprite;
+
     [Header("Movement")]
     public float moveSpeed;
     public float moveVelocity;
@@ -30,6 +32,7 @@ public class PlayerController : MonoBehaviour {
     public GameObject jetPackEffect;
     Transform JetpackLightReleasePoint;
     Transform jetpackLightReleasePoint;
+    public AudioSource jetpack;
     public Transform lightPrefab;
 
     [Header("Animation")]
@@ -108,6 +111,7 @@ public class PlayerController : MonoBehaviour {
              doubleJumped = true;
              Instantiate(jetPackEffect, JetpackLightReleasePoint.position, JetpackLightReleasePoint.rotation, JetpackLightReleasePoint);
              Instantiate(lightPrefab, JetpackLightReleasePoint.position, JetpackLightReleasePoint.rotation, JetpackLightReleasePoint);
+             jetpack.Play();
 
         }
 
@@ -126,11 +130,17 @@ public class PlayerController : MonoBehaviour {
 
         if (rb.velocity.x > 0)
         {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            //transform.rotation = Quaternion.Euler(0, 0, 0);
+            sprite.flipX = false;
+            JetpackLightReleasePoint.rotation = Quaternion.Euler(0, 0, 0);
+
+           // rb.position += new Vector2(delta, 0.0f);
         }
         else if (rb.velocity.x < 0)
         {
-            transform.rotation = Quaternion.Euler(0, 180, 0);
+            //transform.rotation = Quaternion.Euler(0, 180, 0);
+            sprite.flipX = true;
+            JetpackLightReleasePoint.rotation = Quaternion.Euler(0, 180, 0);
         }
     }
 
