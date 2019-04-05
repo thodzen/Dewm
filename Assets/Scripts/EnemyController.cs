@@ -69,13 +69,7 @@ public class EnemyController : MonoBehaviour
 
 		if (gotPlayerInSights)
 		{
-			var vector = playerObject.transform.position.x - transform.position.x;
-			var direction = vector / Mathf.Abs (vector);
-			var delta = direction * speed * Time.deltaTime;
-
-			sprite.flipX = delta < 0;
-
-			rb.position += new Vector2 (delta, 0.0f);
+			AttackPlayer ();
 		}
 		else
 		{
@@ -83,13 +77,15 @@ public class EnemyController : MonoBehaviour
 		}
     }
 
-	void MoveLeft ()
+	void AttackPlayer ()
 	{
-	}
+		var vector = playerObject.transform.position.x - transform.position.x;
+		var direction = vector / Mathf.Abs(vector);
+		var delta = direction * speed * Time.deltaTime;
 
-	void MoveRight ()
-	{
-		sprite.flipX = false;
+		sprite.flipX = delta < 0;
+
+		rb.position += new Vector2(delta, 0.0f);
 	}
 
 	void Patrol ()
