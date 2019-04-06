@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class KeycardScript : MonoBehaviour
 {
+    public AudioSource doorSound;
+    public AudioSource keySound;
+
     [SerializeField]
     private int keyID;
     // Start is called before the first frame update
@@ -23,6 +26,8 @@ public class KeycardScript : MonoBehaviour
         {
             LevelManager.lm.setKeyOwned(keyID);
             Destroy(gameObject);
+            doorSound.Play();
+            keySound.Play();
         }
     }
 }
