@@ -21,6 +21,7 @@ public class Weapon : MonoBehaviour
     public Transform muzzlePrefab;
 
     public AudioSource hitSound;
+    public AudioSource goreSound;
 
     private float timeToSpawnEffect = 0;
     public float effectSpawnRate = 10;
@@ -114,12 +115,12 @@ public class Weapon : MonoBehaviour
                 hitPos = hit.point; // Bullet Effect stops when it hits something
                 hitNormal = hit.normal;
             }
-            Effect(hitPos, hitNormal);
+            Effect(hitPos, hitNormal, hit);
             timeToSpawnEffect = Time.time + 1 / effectSpawnRate;
         }
     }
 
-    void Effect(Vector3 hitPos, Vector3 hitNormal)
+    void Effect(Vector3 hitPos, Vector3 hitNormal, RaycastHit2D hit)
     {
         Transform trail = Instantiate(bulletTrailPrefab, firePoint.position, firePoint.rotation) as Transform;
         LineRenderer lineRender = trail.GetComponent<LineRenderer>();
@@ -130,13 +131,15 @@ public class Weapon : MonoBehaviour
         }
         Destroy(trail.gameObject, 0.04f);
 
-        if (hitNormal != new Vector3(9999, 9999, 9999))
+        if (hitNormal != new Vector3(9999, 9999, 9999) && hit.transform.tag == "Enemy" || hit.transform.tag == "Corpse")
         {
             Instantiate(hitPrefab, hitPos, Quaternion.FromToRotation(Vector3.forward, hitNormal));
-            hitSound.Play();
+            goreSound.Play();
         }
+        hitSound.Play();
 
-        Instantiate(shellReleasePrefab, casingReleasePoint.position, casingReleasePoint.rotation);
+        Rigidbody2D casing = Instantiate(shellReleasePrefab, casingReleasePoint.position, casingReleasePoint.rotation).gameObject.GetComponent<Rigidbody2D>();
+        casing.AddForce(new Vector2(-100f, 50f));
         Instantiate(lightPrefab, firePoint.position, firePoint.rotation, firePoint);
         Instantiate(muzzlePrefab, firePoint.position, firePoint.rotation, firePoint);
         camShake.Shake(camShakeAmount, camShakeLength);
