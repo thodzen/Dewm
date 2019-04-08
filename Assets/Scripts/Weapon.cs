@@ -95,7 +95,7 @@ public class Weapon : MonoBehaviour
             KnockbackBehaviour knockback = hit.transform.GetComponent<KnockbackBehaviour>();
             if (knockback)
             {
-                knockback.Knockback((mousePosition - firePointPosition).normalized * damage * 10);
+                knockback.Knockback((mousePosition - firePointPosition).normalized * damage * 8);
             }
 
         }
