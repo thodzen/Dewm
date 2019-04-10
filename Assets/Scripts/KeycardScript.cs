@@ -6,7 +6,6 @@ public class KeycardScript : MonoBehaviour
 {
     public AudioSource doorSound;
     public AudioSource keySound;
-    public AudioSource additionalSound;
 
     [SerializeField]
     private int keyID;
@@ -29,7 +28,6 @@ public class KeycardScript : MonoBehaviour
             Destroy(gameObject);
             doorSound.Play();
             keySound.Play();
-            additionalSound.Play();
         }
     }
 }
