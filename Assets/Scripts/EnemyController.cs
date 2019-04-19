@@ -5,13 +5,14 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private Animator anim;
 
-	//public float knockbackForce;
+    //public float knockbackForce;
     //public float knockbackLength;
     //private float knockbackCounter;
     //public bool knockback; // use this so the enemy cannot move forward while being knocked back
 
-	[SerializeField]
+    [SerializeField]
 	private GameObject spriteObject;
 	private SpriteRenderer sprite;
 
@@ -57,6 +58,7 @@ public class EnemyController : MonoBehaviour
        // }
 
 		sprite = spriteObject.GetComponent<SpriteRenderer> ();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -69,11 +71,13 @@ public class EnemyController : MonoBehaviour
 
 		if (gotPlayerInSights)
 		{
-			AttackPlayer ();
+            anim.SetFloat("Speed", Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x));
+            AttackPlayer ();
 		}
 		else
 		{
-			Patrol ();
+            anim.SetFloat("Speed", Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x));
+            Patrol ();
 		}
     }
 
