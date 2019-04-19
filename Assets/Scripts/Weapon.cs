@@ -156,7 +156,7 @@ public class Weapon : MonoBehaviour
             yield break;
         }
 
-        muzzleFlash.intensity = 0.5f;
+        muzzleFlash.intensity = 0.3f;
         yield return new WaitForSeconds(0.3f);
         muzzleFlash.intensity = 0;
     }
