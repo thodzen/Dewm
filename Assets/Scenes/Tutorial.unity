@@ -13268,7 +13268,6 @@ PrefabInstance:
       propertyPath: lightPrefab
       value: 
       objectReference: {fileID: 474345668}
-<<<<<<< HEAD
     - target: {fileID: 1287822739244174934, guid: baf265d9c901db14bb093ac34fa5b62c,
         type: 3}
       propertyPath: canUse
@@ -13279,14 +13278,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-=======
-    - target: {fileID: 1349225717169802622, guid: baf265d9c901db14bb093ac34fa5b62c,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: d0b8f42e6d0b32347a9b81c2c6f1849c,
-        type: 3}
->>>>>>> bd880b68ae5406207618d100afccb063f59d896c
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: baf265d9c901db14bb093ac34fa5b62c, type: 3}
 --- !u!1001 &4839149161462365992
