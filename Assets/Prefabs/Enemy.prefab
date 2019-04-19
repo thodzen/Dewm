@@ -55,12 +55,12 @@ MonoBehaviour:
   spriteObject: {fileID: 1688089402}
   speed: 3
   jumpHeight: 4
+  damage: 10
+  attackSpeed: 2
   aiMaxMovementDuration: 5
   aiMinMovementDuration: 2
   aiMaxIdleDuration: 3
   aiMinIdleDuration: 1.5
-  playerObject: {fileID: 1173291151048946544, guid: baf265d9c901db14bb093ac34fa5b62c,
-    type: 3}
 --- !u!114 &145999686
 MonoBehaviour:
   m_ObjectHideFlags: 0

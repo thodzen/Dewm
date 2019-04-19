@@ -22,6 +22,7 @@ public class Weapon : MonoBehaviour
 
     public AudioSource hitSound;
     public AudioSource goreSound;
+    public bool canUse;
 
     private float timeToSpawnEffect = 0;
     public float effectSpawnRate = 10;
