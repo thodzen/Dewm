@@ -18,7 +18,7 @@ public class Weapon : MonoBehaviour
     public Transform shellReleasePrefab;
     public Transform hitPrefab;
     public Transform lightPrefab;
-    public Transform muzzlePrefab;
+    public Light muzzleFlash;
 
     public AudioSource hitSound;
     public AudioSource goreSound;
@@ -28,6 +28,8 @@ public class Weapon : MonoBehaviour
     private float timeToFire = 0;
     Transform firePoint;
     Transform casingReleasePoint;
+
+    private bool muzzle = false;
 
     public AudioSource shootSound;
 
@@ -138,12 +140,23 @@ public class Weapon : MonoBehaviour
         }
         hitSound.Play();
 
+        StartCoroutine(Muzzle());
+
         Rigidbody2D casing = Instantiate(shellReleasePrefab, casingReleasePoint.position, casingReleasePoint.rotation).gameObject.GetComponent<Rigidbody2D>();
         casing.AddForce(new Vector2(-100f, 50f));
-        Instantiate(lightPrefab, firePoint.position, firePoint.rotation, firePoint);
-        Instantiate(muzzlePrefab, firePoint.position, firePoint.rotation, firePoint);
         camShake.Shake(camShakeAmount, camShakeLength);
 
     }
 
+    private IEnumerator Muzzle()
+    {
+        if (muzzle)
+        {
+            yield break;
+        }
+
+        muzzleFlash.intensity = 0.5f;
+        yield return new WaitForSeconds(0.3f);
+        muzzleFlash.intensity = 0;
+    }
 }

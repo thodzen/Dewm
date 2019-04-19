@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour {
     public float jumpHeight;
     private float jumpTimeCounter;
     public float jumpTime;
-    private bool isJumping;
+    private bool isJumpGuy;
     public GameObject jetPackEffect;
     Transform JetpackLightReleasePoint;
     Transform jetpackLightReleasePoint;
@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour {
             Jump();
         }
 
-        if (Input.GetKey(KeyCode.Space) && isJumping == true) //variable jumping
+        if (Input.GetKey(KeyCode.Space) && isJumpGuy == true) //variable jumping
         {
             if (jumpTimeCounter > 0)
             {
@@ -95,14 +95,14 @@ public class PlayerController : MonoBehaviour {
             }
             else
             {
-                isJumping = false;
+                isJumpGuy = false;
             }
 
         }
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            isJumping = false;
+            isJumpGuy = false;
         }
 
          if (Input.GetKeyDown(KeyCode.Space) && !doubleJumped && !grounded)
@@ -147,7 +147,7 @@ public class PlayerController : MonoBehaviour {
 
     public void Jump()
     {
-        isJumping = true;
+        isJumpGuy = true;
         jumpTimeCounter = jumpTime;
         rb.AddForce(Vector2.up * jumpHeight);
     }
