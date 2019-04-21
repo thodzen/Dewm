@@ -21,6 +21,12 @@ public class EnemyController : MonoBehaviour
 	[SerializeField]
 	private float jumpHeight = 1.0f;
 
+	[SerializeField]
+	private int damage = 10;
+	[SerializeField, Range(0.1f, 10)]
+	private float attackSpeed = 2;
+	private float nextAttackTime = 0;
+
 	// AI Movement duration settings
 	[SerializeField]
 	private float aiMaxMovementDuration = 5.0f;
@@ -33,8 +39,6 @@ public class EnemyController : MonoBehaviour
 	[SerializeField]
 	private float aiMinIdleDuration = 1.5f;
 
-	[SerializeField]
-	private GameObject playerObject;
 
 	// AI Movement
 	private float aiMovementDuration = 0.0f;
@@ -83,13 +87,20 @@ public class EnemyController : MonoBehaviour
 
 	void AttackPlayer ()
 	{
-		var vector = playerObject.transform.position.x - transform.position.x;
-		var direction = vector / Mathf.Abs(vector);
+		if (Time.time < nextAttackTime){
+			return;
+		}
+		var vector = PlayerController.Current.transform.position.x - transform.position.x;
+		var direction = Mathf.Sign(vector);
 		var delta = direction * speed * Time.deltaTime;
 
 		sprite.flipX = delta < 0;
 
 		rb.position += new Vector2(delta, 0.0f);
+
+		PlayerController.Current.Health.Subtract(damage);
+
+		nextAttackTime = Time.time + 1 / attackSpeed;
 	}
 
 	void Patrol ()

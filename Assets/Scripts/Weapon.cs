@@ -22,6 +22,7 @@ public class Weapon : MonoBehaviour
 
     public AudioSource hitSound;
     public AudioSource goreSound;
+    public bool canUse;
 
     private float timeToSpawnEffect = 0;
     public float effectSpawnRate = 10;
@@ -155,7 +156,7 @@ public class Weapon : MonoBehaviour
             yield break;
         }
 
-        muzzleFlash.intensity = 0.5f;
+        muzzleFlash.intensity = 0.3f;
         yield return new WaitForSeconds(0.3f);
         muzzleFlash.intensity = 0;
     }
