@@ -6,6 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator anim;
+    public bool isTouchingPlayer = false;
 
     //public float knockbackForce;
     //public float knockbackLength;
@@ -98,14 +99,18 @@ public class EnemyController : MonoBehaviour
 
 		rb.position += new Vector2(delta, 0.0f);
 
-		PlayerController.Current.Health.Subtract(damage);
+        if (isTouchingPlayer == true)
+        {
+            PlayerController.Current.Health.Subtract(damage);
+        }
 
 		nextAttackTime = Time.time + 1 / attackSpeed;
 	}
 
 	void Patrol ()
 	{
-		if (aiIdleDuration > 0.0f)
+        anim.SetFloat("Speed", Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x));
+        if (aiIdleDuration > 0.0f)
 		{
 			aiIdleDuration -= Time.deltaTime;
 		}
@@ -164,10 +169,18 @@ public class EnemyController : MonoBehaviour
 		}
 	}
 
-	//public void Knockback(Vector2 direction)
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            isTouchingPlayer = true;
+        }
+    }
+
+    //public void Knockback(Vector2 direction)
     //{
-     //   knockbackCounter = knockbackLength;
-      //  rb.velocity = direction * knockbackForce;
-       // knockback = true;
+    //   knockbackCounter = knockbackLength;
+    //  rb.velocity = direction * knockbackForce;
+    // knockback = true;
     //}
 }

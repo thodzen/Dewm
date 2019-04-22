@@ -52,9 +52,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e0343bf6ae39841983ea45e515b0b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTouchingPlayer: 0
   spriteObject: {fileID: 1688089402}
   speed: 3
-  jumpHeight: 4
+  jumpHeight: 5
   damage: 10
   attackSpeed: 2
   aiMaxMovementDuration: 5
