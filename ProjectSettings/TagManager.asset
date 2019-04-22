@@ -10,6 +10,7 @@ TagManager:
   - Weapon
   - Obstacle
   - Corpse
+  - KeyCard
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - AirPlatform
   - EnemyBlock
   - Wall
-  - 
+  - KeyCard
   - 
   - 
   - 
