@@ -7,6 +7,8 @@ public class EnemyController : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     public bool isTouchingPlayer = false;
+    public AudioSource deathSound;
+    public bool isdied;
 
     //public float knockbackForce;
     //public float knockbackLength;
@@ -175,6 +177,23 @@ public class EnemyController : MonoBehaviour
         {
             isTouchingPlayer = true;
         }
+    }
+
+    public void Die()
+    {
+        isdied = true;
+        StartCoroutine(DieAnimation());
+    }
+
+    public IEnumerator DieAnimation()
+    {
+        //anim.Play("PlayerDeath");
+        deathSound.Play();
+        this.enabled = false;
+        GetComponentInChildren<SpriteRenderer>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+        yield return new WaitForSeconds(.5f);
+        Destroy(gameObject);
     }
 
     //public void Knockback(Vector2 direction)

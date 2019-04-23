@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private bool isdied;
 
     public GameObject armToDisable;
+    public AudioSource deathSound;
 
 	public SpriteRenderer sprite;
 
@@ -94,6 +95,7 @@ public class PlayerController : MonoBehaviour
     {
         armToDisable.SetActive(false);
         anim.Play("PlayerDeath");
+        deathSound.Play();
         yield return new WaitForSeconds(2.0f);
 
         LevelManager.lm.RestartLevel();

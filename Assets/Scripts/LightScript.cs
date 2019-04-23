@@ -16,7 +16,7 @@ public class LightScript : MonoBehaviour
     void Update()
     {
         Light thisLight = GetComponent<Light>();
-        float dis = (thisLight.transform.position - player.transform.position).magnitude;
+        float dis = (thisLight.transform.position - player.transform.position).magnitude/2;
         if(dis > thisLight.range)
         {
             thisLight.enabled = false;
