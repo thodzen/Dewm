@@ -15,6 +15,10 @@ public class PlayerController : MonoBehaviour
 
 	private Vector2 targetPos;
 
+    private bool isdied;
+
+    public GameObject armToDisable;
+
 	public SpriteRenderer sprite;
 
 	[Header("Movement")]
@@ -80,14 +84,31 @@ public class PlayerController : MonoBehaviour
 	{
 	}
 
-	void FixedUpdate()
-	{
+    public void Die()
+    {
+        isdied = true;
+        StartCoroutine(DieAnimation());
+    }
+
+    public IEnumerator DieAnimation()
+    {
+        armToDisable.SetActive(false);
+        anim.Play("PlayerDeath");
+        yield return new WaitForSeconds(2.0f);
+
+        LevelManager.lm.RestartLevel();
+    }
+
+    void FixedUpdate()
+    {
+        if (isdied) return;
 		grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
+        if (isdied) return;
 
 		if (grounded)
 			doubleJumped = false;

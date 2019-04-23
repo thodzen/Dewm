@@ -22,7 +22,7 @@ public class LoadSceneOnTouch : MonoBehaviour
         }
     }
 
-    void DelayedAction()
+    public void DelayedAction()
     {
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
