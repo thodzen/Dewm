@@ -94,8 +94,9 @@ public class PlayerController : MonoBehaviour
     public IEnumerator DieAnimation()
     {
         armToDisable.SetActive(false);
-        anim.Play("PlayerDeath");
         deathSound.Play();
+        GetComponent<Collider2D>().enabled = false;
+        anim.Play("PlayerDeath");
         yield return new WaitForSeconds(2.0f);
 
         LevelManager.lm.RestartLevel();

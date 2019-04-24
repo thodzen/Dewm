@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour
     public bool isTouchingPlayer = false;
     public AudioSource deathSound;
     public bool isdied;
+    public GameObject deathEffect;
 
     //public float knockbackForce;
     //public float knockbackLength;
@@ -189,6 +190,7 @@ public class EnemyController : MonoBehaviour
     {
         //anim.Play("PlayerDeath");
         deathSound.Play();
+        Instantiate(deathEffect, transform.position, transform.rotation);
         this.enabled = false;
         GetComponentInChildren<SpriteRenderer>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
