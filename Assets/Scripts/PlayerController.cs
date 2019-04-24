@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private bool isdied;
 
     public GameObject armToDisable;
+    public GameObject lightToDisable;
     public AudioSource deathSound;
 
 	public SpriteRenderer sprite;
@@ -94,6 +95,7 @@ public class PlayerController : MonoBehaviour
     public IEnumerator DieAnimation()
     {
         armToDisable.SetActive(false);
+        lightToDisable.SetActive(false);
         deathSound.Play();
         GetComponent<Collider2D>().enabled = false;
         anim.Play("PlayerDeath");
