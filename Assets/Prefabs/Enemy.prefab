@@ -62,7 +62,7 @@ MonoBehaviour:
   speed: 3
   jumpHeight: 5
   damage: 10
-  attackSpeed: 6
+  attackSpeed: 1
   aiMaxMovementDuration: 5
   aiMinMovementDuration: 2
   aiMaxIdleDuration: 3
